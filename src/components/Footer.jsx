@@ -1,95 +1,53 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
-import { sendTrackEvent } from '@edx/frontend-platform/analytics';
-import { ensureConfig } from '@edx/frontend-platform';
-import { AppContext } from '@edx/frontend-platform/react';
+import React from "react";
+import Elektrobit from "../assets/Elektrobit.png";
+import Microsoft from "../assets/microsoft-logo-hd-26.png";
+import Congizant from "../assets/Cogni.png";
+import CCICON from "../assets/cc_icon_white_x2.png";
+import ATTRIBUTRICON from "../assets/attribution_icon_white_x2.png";
+import NCWHITE from "../assets/nc_white_x2.png";
+import NDWHITE from "../assets/nd_white_x2.png";
 
-import messages from './Footer.messages';
-import LanguageSelector from './LanguageSelector';
-
-ensureConfig([
-  'LMS_BASE_URL',
-  'LOGO_TRADEMARK_URL',
-], 'Footer component');
-
-const EVENT_NAMES = {
-  FOOTER_LINK: 'edx.bi.footer.link',
-};
-
-class SiteFooter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.externalLinkClickHandler = this.externalLinkClickHandler.bind(this);
-  }
-
-  externalLinkClickHandler(event) {
-    const label = event.currentTarget.getAttribute('href');
-    const eventName = EVENT_NAMES.FOOTER_LINK;
-    const properties = {
-      category: 'outbound_link',
-      label,
-    };
-    sendTrackEvent(eventName, properties);
-  }
-
-  render() {
-    const {
-      supportedLanguages,
-      onLanguageSelected,
-      logo,
-      intl,
-    } = this.props;
-    const showLanguageSelector = supportedLanguages.length > 0 && onLanguageSelected;
-    const { config } = this.context;
-
-    return (
-      <footer
-        role="contentinfo"
-        className="footer d-flex border-top py-3 px-4"
-      >
-        <div className="container-fluid d-flex">
-          <a
-            className="d-block"
-            href={config.LMS_BASE_URL}
-            aria-label={intl.formatMessage(messages['footer.logo.ariaLabel'])}
-          >
-            <img
-              style={{ maxHeight: 45 }}
-              src={logo || config.LOGO_TRADEMARK_URL}
-              alt={intl.formatMessage(messages['footer.logo.altText'])}
-            />
+const Footer = ()=>{
+  return(<div className="wrapper-footer"> 
+    <footer id="footer">
+      <div className="container">
+        <div className="references edxlogo">
+          
+          <div className="elektrobit-logo">
+            <img src={Elektrobit} width="60" alt="Supported by Elektrobit" />
+            <p style={{marginTop:"29px",fontFamily:"Segeo UI"}}>Supported by Elektrobit</p>
+          </div>
+          <div className="elektrobit-logo">
+            <img src={Microsoft} width="108" height="23" style={{marginTop:"22px"}} alt="Supported by Microsoft" />
+            <p style={{marginTop:"44px",fontFamily:"Segeo UI"}}>Supported by Microsoft</p>
+          </div>
+          <div className="elektrobit-logo">
+            <img src={Congizant} width="156" height="78" alt="Supported by Cognizant" />
+            <p style={{fontFamily:"Segeo UI"}}>Supported by Cognizant</p>
+          </div>
+          
+          <a href="http://open.edx.org">
+          <img src="https://files.edx.org/openedx-logos/open-edx-logo-tag.png" width="175" height="70" alt="Powered by Open edX" />
           </a>
-          <div className="flex-grow-1" />
-          {showLanguageSelector && (
-            <LanguageSelector
-              options={supportedLanguages}
-              onSubmit={onLanguageSelected}
-            />
-          )}
+          
         </div>
-      </footer>
-    );
-  }
+        <p className="reserved">All rights reserved to VisionEmpower 2021</p>
+        <div className="column">
+          <aside>
+          <div className="image-icons">
+            <img src={CCICON} width="30" height="30" alt="" />
+            <img src={ATTRIBUTRICON} width="30" height="30" alt="" />
+            <img src={NCWHITE} width="30" height="30" alt="" />
+            <img src={NDWHITE} width="30" height="30" alt="" />
+          </div>
+           
+          <p className="footer-icon-text" tabIndex={0}>Except where otherwise noted, content on this site is licensed under a <a className="subfoot" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" rel="license">Creative Commons Attribution 4.0 International license</a>. Icons by The Noun Project. <br/> Except for XRCVC content.</p>
+          </aside>
+        </div>
+      </div>
+    </footer>
+  </div>
+  )
 }
 
-SiteFooter.contextType = AppContext;
-
-SiteFooter.propTypes = {
-  intl: intlShape.isRequired,
-  logo: PropTypes.string,
-  onLanguageSelected: PropTypes.func,
-  supportedLanguages: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-  })),
-};
-
-SiteFooter.defaultProps = {
-  logo: undefined,
-  onLanguageSelected: undefined,
-  supportedLanguages: [],
-};
-
-export default injectIntl(SiteFooter);
-export { EVENT_NAMES };
+export default Footer;
