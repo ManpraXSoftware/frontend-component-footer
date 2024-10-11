@@ -1,7 +1,7 @@
 import React from "react";
 import Elektrobit from "../assets/Elektrobit.png";
 import Microsoft from "../assets/microsoft-logo-hd-26.png";
-import Congizant from "../assets/Cogni.png";
+import Congizant from "../assets/Congnizant_Foundation_india_Logo.png";
 import CCICON from "../assets/cc_icon_white_x2.png";
 import ATTRIBUTRICON from "../assets/attribution_icon_white_x2.png";
 import NCWHITE from "../assets/nc_white_x2.png";
@@ -22,7 +22,7 @@ const Footer = ()=>{
             <p style={{marginTop:"44px",fontFamily:"Segeo UI"}}>Supported by Microsoft</p>
           </div>
           <div className="elektrobit-logo">
-            <img src={Congizant} width="156" height="78" alt="Supported by Cognizant" />
+          <img src={Congizant} style={{backgroundColor:"white"}} st width="156" height="78" alt="Supported by Cognizant" />
             <p style={{fontFamily:"Segeo UI"}}>Supported by Cognizant</p>
           </div>
           
