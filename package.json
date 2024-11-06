@@ -2,7 +2,7 @@
   "name": "@edx/frontend-component-footer",
   "version": "1.0.0-semantically-released",
   "description": "Footer component for use when building Open edX frontend applications",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -10,14 +10,13 @@
     "build": "make build",
     "i18n_extract": "fedx-scripts formatjs extract",
     "lint": "fedx-scripts eslint --ext .js --ext .jsx .",
+    "prepare": "npm run build",
     "snapshot": "fedx-scripts jest --updateSnapshot",
     "start": "fedx-scripts webpack-dev-server --progress",
     "start:with-theme": "paragon install-theme && npm start && npm install",
     "test": "fedx-scripts jest --coverage"
   },
-  "files": [
-    "/dist"
-  ],
+
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
