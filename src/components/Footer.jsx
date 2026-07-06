@@ -8,6 +8,7 @@ import NCWHITE from "../assets/nc_white_x2.png";
 import NDWHITE from "../assets/nd_white_x2.png";
 
 const Footer = ()=>{
+  const currentYear = new Date().getFullYear();
   return(<div className="wrapper-footer"> 
     <footer id="footer">
       <div className="container">
@@ -31,7 +32,7 @@ const Footer = ()=>{
           </a>
           
         </div>
-        <p className="reserved">All rights reserved to VisionEmpower 2021</p>
+        <p className="reserved">All rights reserved to VisionEmpower 2021-{String(currentYear).slice(-2)}</p>
         <div className="column">
           <aside>
           <div className="image-icons">
