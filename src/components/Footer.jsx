@@ -32,7 +32,7 @@ const Footer = ()=>{
           </a>
           
         </div>
-        <p className="reserved">All rights reserved to VisionEmpower 2021-{String(currentYear).slice(-2)}</p>
+        <p className="reserved">All rights reserved to Vision Empower 2021-{String(currentYear).slice(-2)}</p>
         <div className="column">
           <aside>
           <div className="image-icons">
