@@ -6,25 +6,26 @@ import CCICON from "../assets/cc_icon_white_x2.png";
 import ATTRIBUTRICON from "../assets/attribution_icon_white_x2.png";
 import NCWHITE from "../assets/nc_white_x2.png";
 import NDWHITE from "../assets/nd_white_x2.png";
+import '../_footer.scss';
 
 const Footer = ()=>{
   const currentYear = new Date().getFullYear();
   return(<div className="wrapper-footer"> 
     <footer id="footer">
       <div className="container">
-        <div className="references edxlogo">
+        <div className="references edxlogo" id="footer-logo">
           
           <div className="elektrobit-logo">
             <img src={Elektrobit} width="60" alt="Supported by Elektrobit" />
-            <p style={{marginTop:"29px",fontFamily:"Segeo UI"}}>Supported by Elektrobit</p>
+            <p className="footerlogo" style={{marginTop:"29px",fontFamily:"Segeo UI"}}>Supported by Elektrobit</p>
           </div>
           <div className="elektrobit-logo">
             <img src={Microsoft} width="108" height="23" style={{marginTop:"22px"}} alt="Supported by Microsoft" />
-            <p style={{marginTop:"44px",fontFamily:"Segeo UI"}}>Supported by Microsoft</p>
+            <p className="footerlogo" style={{marginTop:"44px",fontFamily:"Segeo UI"}}>Supported by Microsoft</p>
           </div>
           <div className="elektrobit-logo">
           <img src={Congizant} style={{backgroundColor:"white"}} st width="156" height="78" alt="Supported by Cognizant" />
-            <p style={{fontFamily:"Segeo UI"}}>Supported by Cognizant</p>
+            <p className="footerlogo" style={{fontFamily:"Segeo UI"}}>Supported by Cognizant</p>
           </div>
           
           <a href="http://open.edx.org">
